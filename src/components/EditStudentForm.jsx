@@ -19,6 +19,7 @@ const EditStudentForm = ({show, close, studentInfo}) => {
     if(userName && email && phoneNumber){
       if(phoneNumber.match(phoneFormat)){
         if(email.match(mailFormat)){
+          toast.dark('Edit successful')
           dispatch(editStudent({ uuid:studentInfo.uuid, name: userName, email: email, phone: phoneNumber }));
           setUsername('')
           setEmail('');

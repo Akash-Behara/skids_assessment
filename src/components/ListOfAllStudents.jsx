@@ -1,29 +1,27 @@
 import React, { useState } from 'react'
-
 import { useSelector, useDispatch } from 'react-redux';
-import { addStudent, editStudent, removeStudent } from '../features/studentSlice';
-import AddStudentForm from './AddStudentForm';
-
+import { removeStudent } from '../features/studentSlice';
 import { InboxIcon, UserPlusIcon, TrashIcon, PencilSquareIcon } from "@heroicons/react/24/outline";
+
+import AddStudentForm from './AddStudentForm';
 import EditStudentForm from './EditStudentForm';
 
 const ListOfAllStudents = () => {
-    const students = useSelector((state) => state.student.students);
-    const dispatch = useDispatch();
+  const students = useSelector((state) => state.student.students);
+  const dispatch = useDispatch();
 
-    const [showAddStudentModal, setShowAddStudentModal] = useState(false);
-    const [showEditStudentModal, setShowEditStudentModal] = useState(false);
-    const [selectedStudent, setSelectedStudent] = useState({});
+  const [showAddStudentModal, setShowAddStudentModal] = useState(false);
+  const [showEditStudentModal, setShowEditStudentModal] = useState(false);
+  const [selectedStudent, setSelectedStudent] = useState({});
 
-    const deleteStudent = (uuid) => {
-      dispatch(removeStudent(uuid))
-    }
+  const deleteStudent = (uuid) => {
+    dispatch(removeStudent(uuid))
+  }
 
-    const editStudentForm = (student) => {
-      setSelectedStudent(student);
-      setShowEditStudentModal(true);
-    }
-
+  const editStudentForm = (student) => {
+    setSelectedStudent(student);
+    setShowEditStudentModal(true);
+  }
 
   return (
     <div className="flex flex-col p-3 md:p-10 h-full">
@@ -33,7 +31,7 @@ const ListOfAllStudents = () => {
           <UserPlusIcon className="h-5 w-5"/>
         </div>
       </div>
-      {students && students.length == 0 && (
+      {students && students.length === 0 && (
         <div className="h-full w-full flex flex-col justify-center items-center"><InboxIcon className="h-12 w-12 text-gray-500"/> <span>No Records Found</span></div>
       )}
       <div className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-5 gap-y-0 h-full flex-wrap overflow-y-scroll rounded-md p-5 scrollbar-hide">

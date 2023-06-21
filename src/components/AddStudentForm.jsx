@@ -26,14 +26,15 @@ const AddStudentForm = ({ show, close }) => {
           setEmail('');
           setPhoneNumber(0);
           close();
+          toast.dark('Created successfully');
         } else {
-          toast.dark('Invaild Email')
+          toast.dark('Invaild Email');
         }
       } else {
-        toast.dark('Invaild phone number')
+        toast.dark('Invaild phone number');
       }
     } else {
-      toast.dark('Fill all fields')
+      toast.dark('Fill all fields');
     }
   }
 

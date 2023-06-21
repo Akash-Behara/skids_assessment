@@ -1,6 +1,4 @@
-import AddStudentForm from "./components/AddStudentForm";
 import ListOfAllStudents from "./components/ListOfAllStudents";
-
 
 function App() {
   return (
